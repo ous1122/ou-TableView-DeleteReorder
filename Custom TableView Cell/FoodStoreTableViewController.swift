@@ -1,9 +1,9 @@
 //
-//  FoodStoreTableViewController.swift
-//  Custom TableView Cell
+//  DITDeliever.swift
+//  DITFoodDelivery
 //
-//  Created by 김종현 on 2018. 5. 12..
-//  Copyright © 2018년 김종현. All rights reserved.
+//  Created by D7703_17 on 2018. 5. 21..
+//  Copyright © 2018년 D7703_23. All rights reserved.
 //
 
 import UIKit
