@@ -282,7 +282,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Custom TableView Cell/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.dit.Custom-TableView-Cell";
+				PRODUCT_BUNDLE_IDENTIFIER = dit.ac.kr.DITFoodDelivery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -298,7 +298,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Custom TableView Cell/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.dit.Custom-TableView-Cell";
+				PRODUCT_BUNDLE_IDENTIFIER = dit.ac.kr.DITFoodDelivery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
