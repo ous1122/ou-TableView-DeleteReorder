@@ -63,7 +63,13 @@ class FoodStoreTableViewController: UITableViewController {
         let optionMenu = UIAlertController(title:"전화걸기", message:foodStoreTel[indexPath.row], preferredStyle: .actionSheet)
         
         let callAction = UIAlertAction(title: "전화를 겁니다.", style: .default) {(action: UIAlertAction) -> Void in
-        print("전화를 걸고 있습니다.")
+            
+            let alert = UIAlertController(title: self.foodStoreNames[indexPath.row]+"에 전화를 걸었습니다.", message: self.foodStoreNames[indexPath.row]+"에 전화를 걸어버렸다.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "알겠습니다.", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+        //print("전화를 걸고 있습니다.")
     }
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
