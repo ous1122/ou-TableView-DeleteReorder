@@ -11,11 +11,11 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var cellImage: String = ""
-    var cellName : String = ""
+    var cellTel : String = ""
     var cellLocation : String = ""
-    @IBOutlet weak var cellType: UILabel!
+    var cellType : String = ""
     @IBOutlet weak var cellImageView: UIImageView!
-    @IBOutlet weak var cellNamePass: UILabel!
+    @IBOutlet weak var cellTelPass: UILabel!
     @IBOutlet weak var cellLocationPass: UILabel!
     @IBOutlet weak var cellTypePass: UILabel!
     
@@ -23,6 +23,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cellImageView.image = UIImage(named: cellImage)
+        cellTelPass.text = cellTel
+        cellLocationPass.text = cellLocation
+        cellTypePass.text = cellType
         // Do any additional setup after loading the view.
     }
 
