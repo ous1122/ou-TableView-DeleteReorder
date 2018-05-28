@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -73,6 +74,7 @@
                                     <outlet property="nameLabel" destination="KxV-Jv-1wB" id="g91-Eg-M1f"/>
                                     <outlet property="thumbnailImageView" destination="bLb-Da-yXx" id="9FB-P1-GTg"/>
                                     <outlet property="typeLabel" destination="WwD-Dg-9gC" id="6ku-cT-dur"/>
+                                    <segue destination="Oqr-od-cyC" kind="show" id="hrn-KH-hdy"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -81,11 +83,48 @@
                             <outlet property="delegate" destination="4v7-NM-hQw" id="dWW-c5-NcN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Dcs-q0-Hyr"/>
+                    <navigationItem key="navigationItem" id="Dcs-q0-Hyr">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="tUW-bk-REl">
+                            <connections>
+                                <action selector="btEdit:" destination="4v7-NM-hQw" id="pq5-FJ-hRm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="y86-0B-1o4">
+                            <connections>
+                                <action selector="btDone:" destination="4v7-NM-hQw" id="Iei-Dl-wId"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ee-Cp-xvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="455.19999999999999" y="77.811094452773617"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="nB9-Gw-Wys">
+            <objects>
+                <viewController id="Oqr-od-cyC" customClass="DetailViewController" customModule="Custom_TableView_Cell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yaQ-sS-fUs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b4a-Qx-tDn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="303"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b4a-Qx-tDn" firstAttribute="leading" secondItem="uRa-JK-frM" secondAttribute="leading" id="FSs-Gd-Pn7"/>
+                            <constraint firstItem="uRa-JK-frM" firstAttribute="trailing" secondItem="b4a-Qx-tDn" secondAttribute="trailing" id="Zqu-Pp-Gi7"/>
+                            <constraint firstItem="b4a-Qx-tDn" firstAttribute="top" secondItem="uRa-JK-frM" secondAttribute="top" id="gZY-Ny-57n"/>
+                            <constraint firstItem="uRa-JK-frM" firstAttribute="bottom" secondItem="b4a-Qx-tDn" secondAttribute="bottom" constant="300" id="i2x-fJ-aQm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uRa-JK-frM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xtx-fN-8NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248.8" y="77.811094452773617"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qIc-Ez-8m8">
