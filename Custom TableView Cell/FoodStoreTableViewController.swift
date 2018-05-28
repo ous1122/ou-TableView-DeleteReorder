@@ -59,7 +59,7 @@ class FoodStoreTableViewController: UITableViewController {
 
         return cell
     }
-
+/*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let optionMenu = UIAlertController(title:"전화걸기", message:foodStoreTel[indexPath.row], preferredStyle: .actionSheet)
         
@@ -79,7 +79,7 @@ class FoodStoreTableViewController: UITableViewController {
         optionMenu.addAction(cancelAction)
         present(optionMenu, animated: true, completion: nil)
     }
-        
+      */
         
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -100,7 +100,7 @@ class FoodStoreTableViewController: UITableViewController {
     }
 
 
-    
+    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let tmp1 = foodStoreNames[to.row]
@@ -113,7 +113,8 @@ class FoodStoreTableViewController: UITableViewController {
         
         tableView.reloadData()
     }
-
+     */
+    
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -122,15 +123,22 @@ class FoodStoreTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.destination == "showDetail"
- 
+     if segue.identifier == "showDetail" {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let destinationController = segue.destination as! DetailViewController
+            destinationController.title = foodStoreNames[indexPath.row]
+            
+            //이미지 넘기기
+            destinationController.cellImage = foodStoreImages[indexPath.row]
+        }
     }
-*/
+
+}
 }

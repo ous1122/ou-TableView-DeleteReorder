@@ -83,18 +83,7 @@
                             <outlet property="delegate" destination="4v7-NM-hQw" id="dWW-c5-NcN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Dcs-q0-Hyr">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="tUW-bk-REl">
-                            <connections>
-                                <action selector="btEdit:" destination="4v7-NM-hQw" id="pq5-FJ-hRm"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="y86-0B-1o4">
-                            <connections>
-                                <action selector="btDone:" destination="4v7-NM-hQw" id="Iei-Dl-wId"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Dcs-q0-Hyr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ee-Cp-xvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,6 +110,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uRa-JK-frM"/>
                     </view>
+                    <connections>
+                        <outlet property="cellImageView" destination="b4a-Qx-tDn" id="pLj-tm-q9v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xtx-fN-8NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
