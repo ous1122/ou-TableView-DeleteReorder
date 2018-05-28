@@ -135,6 +135,9 @@ class FoodStoreTableViewController: UITableViewController {
             let destinationController = segue.destination as! DetailViewController
             destinationController.title = foodStoreNames[indexPath.row]
             
+            
+            // 이름 넘기기
+            destinationController.title = foodStoreNames[indexPath.row]     
             //이미지 넘기기
             destinationController.cellImage = foodStoreImages[indexPath.row]
         }

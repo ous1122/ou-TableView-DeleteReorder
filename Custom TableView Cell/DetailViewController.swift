@@ -11,12 +11,18 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var cellImage: String = ""
-
+    var cellName : String = ""
+    var cellLocation : String = ""
+    @IBOutlet weak var cellType: UILabel!
     @IBOutlet weak var cellImageView: UIImageView!
+    @IBOutlet weak var cellNamePass: UILabel!
+    @IBOutlet weak var cellLocationPass: UILabel!
+    @IBOutlet weak var cellTypePass: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-cellImageView.image = UIImage(named: cellImage)
+        cellImageView.image = UIImage(named: cellImage)
         // Do any additional setup after loading the view.
     }
 

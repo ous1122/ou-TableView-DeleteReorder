@@ -133,6 +133,10 @@
                     </view>
                     <connections>
                         <outlet property="cellImageView" destination="b4a-Qx-tDn" id="pLj-tm-q9v"/>
+                        <outlet property="cellLocationPass" destination="pwc-H9-Na7" id="whe-h9-E6X"/>
+                        <outlet property="cellNamePass" destination="Wac-vG-9a3" id="cgX-kV-Z04"/>
+                        <outlet property="cellType" destination="496-0s-hVL" id="Olu-1u-Rez"/>
+                        <outlet property="cellTypePass" destination="496-0s-hVL" id="OcI-Yo-vW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xtx-fN-8NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
