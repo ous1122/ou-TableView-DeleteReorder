@@ -16,6 +16,12 @@ class FoodStoreTableViewController: UITableViewController {
                             "부산광역시 부산진구 양정1동 350-1", "부산광역시 부산진구 양정1동 중앙대로 902"]
     var foodStoreType = ["중국식당", "분식점", "중국식당", "도시락", "돼지국밥집", "중국식당"]
     var foodStoreTel = ["000-0000-0000", "000-0000-0001", "000-0000-0002", "000-0000-0003", "000-0000-0004", "000-0000-0005",]
+    var foodMenu = ["짜장면","짬뽕","짬짜면","탕수육","양장피","깐풍기","군만두",
+                    "떡볶이","어묵","핫도그","튀김",
+                    "짜장면","짬뽕","짬짜면","탕수육","양장피","깐풍기","군만두",
+                    "치킨마요","참치마요","돈불와퍼","돈치와퍼","참치와퍼","치킨도시락","치킨데리",
+                    "수육백반","돼지국밥","순대국밥","내장국밥",
+                    "백종원짜장", "백종원짬뽕", "백종원탕수육", "백종원깐풍기", "백종원군만두"]
     
 
     override func viewDidLoad() {
@@ -146,6 +152,8 @@ class FoodStoreTableViewController: UITableViewController {
             destinationController.cellLocation = foodStoreLocation[indexPath.row]
             //종류 넘기기
             destinationController.cellType = foodStoreType[indexPath.row]
+            
+            destinationController.cellMenu = foodMenu[indexPath.row]
         }
     }
 

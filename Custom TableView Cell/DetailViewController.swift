@@ -8,26 +8,59 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    
     
     var cellImage: String = ""
     var cellTel : String = ""
     var cellLocation : String = ""
     var cellType : String = ""
-    @IBOutlet weak var cellImageView: UIImageView!
-    @IBOutlet weak var cellTelPass: UILabel!
-    @IBOutlet weak var cellLocationPass: UILabel!
-    @IBOutlet weak var cellTypePass: UILabel!
+    var cellMenu : String = ""
     
+    
+    @IBOutlet weak var cellImageView: UIImageView!
+    
+    @IBOutlet weak var detailTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cellImageView.image = UIImage(named: cellImage)
-        cellTelPass.text = cellTel
-        cellLocationPass.text = cellLocation
-        cellTypePass.text = cellType
+        
+        detailTableView.delegate = self
+        detailTableView.dataSource = self
         // Do any additional setup after loading the view.
+        
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
+        
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "주소:" + cellLocation
+            return cell
+        } else if indexPath.row == 1 {
+            cell.textLabel?.text = cellTel
+            return cell
+        } else if indexPath.row == 2 {
+            cell.textLabel?.text = cellType
+            return cell
+        } else {
+            cell.textLabel?.text = cellMenu
+            return cell
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,3 +79,4 @@ class DetailViewController: UIViewController {
     */
 
 }
+
