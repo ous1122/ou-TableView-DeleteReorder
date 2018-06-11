@@ -9,11 +9,15 @@
 import UIKit
 
 class FoodStoreTableViewController: UITableViewController {
+    @IBOutlet weak var myMapView: MKMapView
     var foodStoreNames = ["번개반점", "아딸", "왕짜장", "토마토도시락 동의과학대점", "늘해랑",  "홍콩반점0410 양정점"]
     var foodStoreImages = ["01", "02", "03", "04", "05",  "06"]
-    var foodStoreLocation = ["부산광역시 부산진구 양정동 418-282","부산광역시 부산진구 양정동 393-18",
-                             "부산광역시 부산진구 양정1동 356-22", "부산광역시 부산진구 양정동",
-                            "부산광역시 부산진구 양정1동 350-1", "부산광역시 부산진구 양정1동 중앙대로 902"]
+    var foodStoreLocation = ["부산광역시 부산진구 양정동 418-282",
+                             "부산광역시 부산진구 양정동 393-18",
+                             "부산광역시 부산진구 양정1동 356-22",
+                             "부산광역시 부산진구 양정동",
+                            "부산광역시 부산진구 양정1동 350-1",
+                            "부산광역시 부산진구 양정1동 중앙대로 902"]
     var foodStoreType = ["중국식당", "분식점", "중국식당", "도시락", "돼지국밥집", "중국식당"]
     var foodStoreTel = ["000-0000-0000", "000-0000-0001", "000-0000-0002", "000-0000-0003", "000-0000-0004", "000-0000-0005",]
     var foodMenu = ["짜장면","짬뽕","짬짜면","탕수육","양장피","깐풍기","군만두",
@@ -22,6 +26,7 @@ class FoodStoreTableViewController: UITableViewController {
                     "치킨마요","참치마요","돈불와퍼","돈치와퍼","참치와퍼","치킨도시락","치킨데리",
                     "수육백반","돼지국밥","순대국밥","내장국밥",
                     "백종원짜장", "백종원짬뽕", "백종원탕수육", "백종원깐풍기", "백종원군만두"]
+    
     
 
     override func viewDidLoad() {
@@ -33,6 +38,32 @@ class FoodStoreTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = " DIT 철가방"
+        let center = CLLocationCoordinate2D(latitude: 35.166043, longitude: 129.072564)
+        let span = MKCoordinateSpan(latitudeDelta: 0.006, longitudeDelta: 0.006)
+        let region = MKCoordinateRegion(center: center, span: span)
+        myMapView.setRegion(region, animated: true)
+        
+        for addr in foodStoreLocation {
+            let geoCoder = CLGeocoder()
+            geoCoder.geocodeAddressString(addr) {
+                if let myError = error {
+                    print(myError)
+                    return
+                }
+                if let myPlacemarks = placemarks {
+                    let myPlacemarks = myPlacemarks[0]
+                    let loc = myPlacemark.location?.coordinate
+                    
+                    let anno = MKPointAnnotation()
+                    anno.coordinate = loc!
+                    anno.title = "wait"
+                    anno.subtitle = addr
+                    self.myMapView.addAnnotation(anno)
+                } else {
+                print("placemarks nil 발생")
+                }
+            }
+        }
     }
     
     
