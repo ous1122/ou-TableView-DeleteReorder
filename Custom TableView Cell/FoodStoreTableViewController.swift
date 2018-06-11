@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
 class FoodStoreTableViewController: UITableViewController {
-    @IBOutlet weak var myMapView: MKMapView
     var foodStoreNames = ["번개반점", "아딸", "왕짜장", "토마토도시락 동의과학대점", "늘해랑",  "홍콩반점0410 양정점"]
     var foodStoreImages = ["01", "02", "03", "04", "05",  "06"]
     var foodStoreLocation = ["부산광역시 부산진구 양정동 418-282",
@@ -38,32 +38,7 @@ class FoodStoreTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = " DIT 철가방"
-        let center = CLLocationCoordinate2D(latitude: 35.166043, longitude: 129.072564)
-        let span = MKCoordinateSpan(latitudeDelta: 0.006, longitudeDelta: 0.006)
-        let region = MKCoordinateRegion(center: center, span: span)
-        myMapView.setRegion(region, animated: true)
         
-        for addr in foodStoreLocation {
-            let geoCoder = CLGeocoder()
-            geoCoder.geocodeAddressString(addr) {
-                if let myError = error {
-                    print(myError)
-                    return
-                }
-                if let myPlacemarks = placemarks {
-                    let myPlacemarks = myPlacemarks[0]
-                    let loc = myPlacemark.location?.coordinate
-                    
-                    let anno = MKPointAnnotation()
-                    anno.coordinate = loc!
-                    anno.title = "wait"
-                    anno.subtitle = addr
-                    self.myMapView.addAnnotation(anno)
-                } else {
-                print("placemarks nil 발생")
-                }
-            }
-        }
     }
     
     
@@ -96,27 +71,6 @@ class FoodStoreTableViewController: UITableViewController {
 
         return cell
     }
-/*
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let optionMenu = UIAlertController(title:"전화걸기", message:foodStoreTel[indexPath.row], preferredStyle: .actionSheet)
-        
-        let callAction = UIAlertAction(title: "전화를 겁니다.", style: .default) {(action: UIAlertAction) -> Void in
-            
-            let alert = UIAlertController(title: self.foodStoreNames[indexPath.row]+"에 전화를 걸었습니다.", message: self.foodStoreNames[indexPath.row]+"에 전화를 걸어버렸다.", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "알겠습니다.", style: .default, handler: nil))
-            
-            self.present(alert, animated: true)
-        //print("전화를 걸고 있습니다.")
-    }
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
-        optionMenu.addAction(callAction)
-        optionMenu.addAction(cancelAction)
-        present(optionMenu, animated: true, completion: nil)
-    }
-      */
         
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -137,28 +91,7 @@ class FoodStoreTableViewController: UITableViewController {
     }
 
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let tmp1 = foodStoreNames[to.row]
-        foodStoreNames[to.row] = foodStoreNames[fromIndexPath.row]
-        foodStoreNames[fromIndexPath.row] = tmp1
-        
-        let tmp2 = foodStoreImages[to.row]
-        foodStoreImages[to.row] = foodStoreImages[fromIndexPath.row]
-        foodStoreImages[fromIndexPath.row] = tmp2
-        
-        tableView.reloadData()
-    }
-     */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+
 
 
     // MARK: - Navigation
@@ -186,7 +119,11 @@ class FoodStoreTableViewController: UITableViewController {
             
             destinationController.cellMenu = foodMenu[indexPath.row]
         }
-    }
+     } else if segue.identifier == "totalMap" {
+        let destinationController = segue.destination as! TotalMapViewController
+        destinationController.locations = foodStoreLocation
+        destinationController.names = foodStoreNames
+        }
 
 }
 }
